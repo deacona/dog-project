@@ -35,9 +35,9 @@ Once your environment is setup and configured, the whole pipeline can be run fro
 
 At each stage Accuracy was used to measure performance of the model. Also Categorical Cross-Entropy was used during training of the Dog breed classifiers.
 
-1. **Face detector**: I used a pre-trained Haar feature-based cascade classifier for this. It was 100% accurate at identifying a sample of 100 human faces, but also identified 11% of 100 dog faces as human - so is not perfect! Note also it requires clearly presented faces to work. There is room for improvement here - either by tuning this model or using an alternative.
+1. **Face detector**: I used a pre-trained Haar feature-based cascade classifier for this. It was 99% accurate at identifying a sample of 13,233 human faces, but also identified 11% of 6,680 dog faces as human - so is not perfect! Note also it requires clearly presented faces to work. There is room for improvement here - either by tuning this model or using an alternative.
 
-2. **Dog detector**: Here, I used a pre-trained ResNet-50 model to identify dogs. In this case, the model was 100% accurate with samples of both 100 human faces and 100 dogs.
+2. **Dog detector**: Here, I used a pre-trained ResNet-50 model to identify dogs. In this case, the model was 99% accurate with samples of both 13,233 human faces and 6,680 dogs.
 
 3. **Dog breed classification**: For the final model I experimated with a scratch CNN (4% accuracy), VGG-16 bottleneck features (42% accuracy) and ResNet-50 bottleneck features (81% accuracy). ResNet-50 was the clear winner so that formed part of the final algrothim. I would still like to look at tuning this model further though.
 
@@ -45,9 +45,14 @@ At each stage Accuracy was used to measure performance of the model. Also Catego
 
 ### Web Application
 
-TODO...
+The web app displays all images included in the `app/static` folder and predictions are calculated by clicking on the image...
 
+> INSERT SCREENSHOT HERE
 
+The app could be improved in a number of ways, e.g.
+* Speed it up - the prediction algorithm is a little slow currently
+* More input options - image upload or even web urls
+* More detail on confidence of prediction - probabilities
 
 
 ## Project Organisation <a name="project"></a>
@@ -93,3 +98,5 @@ TODO...
 ## Licensing, Authors, Acknowledgements <a name="licensing"></a>
 
 Acknowledgement to Udacity for the starter code on this project. A big thankyou to my course mentor [NicoEssi](https://github.com/NicoEssi) for his advice and support.
+
+Additional images are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/) and [Doggos Doggy Day Care](https://www.facebook.com/doggosdoggydaycaredromore/)
