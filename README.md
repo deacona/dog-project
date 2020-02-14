@@ -20,11 +20,19 @@ Given an image of a dog, the algorithm will identify an estimate of the canine�
 
 ## Instructions <a name="instructions"></a>
 
-This project requires Python 3 and the libraries found in the [requirements.txt](requirements/requirements.txt) file.
+This project requires Python 3 and the libraries found in the [requirements.txt](requirements/requirements.txt) and [requirements-app.txt](requirements/requirements-app.txt) files.
 
-There are various ways to install and run the machine learning pipeline - Mac or Linux or Windows, local or AWS, CPU or GPU supported. For detailed instructions please see https://github.com/udacity/dog-project.
+There are various ways to install and run the machine learning pipeline - Mac or Linux or Windows, local or AWS, CPU or GPU supported. For detailed instructions please see https://github.com/udacity/dog-project. After installation configure the following in your environment/session...
+
+    `set KERAS_BACKEND=tensorflow`
+    `python -c "from keras import backend"`
+    `python -m ipykernel install --user --name dog-project --display-name "dog-project"`
 
 Once your environment is setup and configured, the whole pipeline can be run from the [dog_app.ipynb](dog_app.ipynb) notebook.
+
+Run the following command in the `app` directory to launch the web app...
+
+    `python run.py`
 
 
 
@@ -47,7 +55,7 @@ At each stage Accuracy was used to measure performance of the model. Also Catego
 
 The web app displays all images included in the `app/static` folder and predictions are calculated by clicking on the image...
 
-> INSERT SCREENSHOT HERE
+![Web app in action](app_screenshot.png)
 
 The app could be improved in a number of ways, e.g.
 * Speed it up - the prediction algorithm is a little slow currently
@@ -57,18 +65,21 @@ The app could be improved in a number of ways, e.g.
 
 ## Project Organisation <a name="project"></a>
 
-    ├── bottleneck_features             	
-    │   ├── DogResnet50Data.npz 				<- Pre-trained ResNet-50 model (not included in repo)
-    │   └── DogVGG16Data.npz            		<- Pre-trained VGG-16 model (not included in repo)
+
+    ├── app                   
+    │   ├── static                              <- Images for use in web app
+    │   ├── templates                            
+    │   │   └── master.html                     <- HTML template for main page
+    │   └── run.py                              <- Script to launch app, make predictions, etc
+    │
+    ├── bottleneck_features
+    │   ├── DogResnet50Data.npz                 <- Pre-trained ResNet-50 model (excluded from repo)
+    │   └── DogVGG16Data.npz                    <- Pre-trained VGG-50 model (excluded from repo)
     │
     ├── haarcascades                             
     │   └── haarcascade_frontalface_alt.xml     <- Pre-trained Haar cascade face detector
     │
-    ├── images                            
-    │   ├── American_water_spaniel_00648.jpg    <- Sample dog image
-    │   └── sample_human_2.png                  <- Sample human image
-    │
-    ├── lfw                   
+    ├── images                                  <- Images used in ML pipeline
     │
     ├── requirements                   
     │   ├── dog-linux.yml   
@@ -78,14 +89,16 @@ The app could be improved in a number of ways, e.g.
     │   ├── dog-windows.yml   
     │   ├── dog-windows-gpu.yml   
     │   ├── requirements.txt
+    │   ├── requirements-app.txt
     │   └── requirements-gpu.txt
     │
-    ├── saved_models                       
-    │   ├── model.final.hdf5                    <- Final CNN model for use in application
-    │   ├── weights.best.from_scratch.hdf5      <- Model weights for scratch CNN
-    │   ├── weights.best.ResNet50.hdf5          <- Model weights for ResNet-50 CNN
-    │   └── weights.best.VGG16.hdf5             <- Model weights for VGG-16 CNN
+    ├── saved_models
+    │   ├── model.final.hdf5                    <- Final CNN model (excluded from repo)
+    │   ├── weights.best.from_scratch.hdf5      <- Weights for scratch CNN (excluded from repo)
+    │   ├── weights.best.ResNet50.hdf5          <- Weights for ResNet-50 CNN (excluded from repo)
+    │   └── weights.best.VGG16.hdf5             <- Weights for VGG-50 CNN (excluded from repo)
     │
+    ├── app_screenshot.png                      <- Screenshot of web app
     ├── dog_app.ipynb                           <- Pipeline for creating, training and testing model
     ├── extract_bottleneck_features.py          <- Helper functions for predictions on pre-trained models
     ├── LICENSE.txt                             <- Software licence
@@ -97,6 +110,6 @@ The app could be improved in a number of ways, e.g.
 
 ## Licensing, Authors, Acknowledgements <a name="licensing"></a>
 
-Acknowledgement to Udacity for the starter code on this project. A big thankyou to my course mentor [NicoEssi](https://github.com/NicoEssi) for his advice and support.
+Acknowledgement to Udacity for the starter code on this project and a big thankyou to my course mentor [NicoEssi](https://github.com/NicoEssi) for his advice and support.
 
-Additional images are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/) and [Doggos Doggy Day Care](https://www.facebook.com/doggosdoggydaycaredromore/)
+Additional images are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/) and (with permission) [Doggos Doggy Day Care](https://www.facebook.com/doggosdoggydaycaredromore/).

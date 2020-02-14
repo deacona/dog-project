@@ -1,6 +1,5 @@
 .DS_Store
 .ipynb_checkpoints
 .vscode
-lfw
 saved_models
 bottleneck_features
