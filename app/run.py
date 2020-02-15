@@ -2,11 +2,10 @@ import os
 from flask import Flask
 from flask import render_template, request
 import cv2
-from keras.applications.resnet50 import preprocess_input, decode_predictions, ResNet50
+from keras.applications.resnet50 import preprocess_input, ResNet50
 from keras.preprocessing import image
 import numpy as np
 from keras.models import load_model
-# from keras import backend as K
 from keras.layers import GlobalAveragePooling2D, Dense
 from keras.models import Sequential
 
@@ -17,6 +16,7 @@ from keras.models import Sequential
 # instantiate web app
 app = Flask(__name__)
 
+# cleaned list of dog names for prediction output
 dog_names = ['Affenpinscher',
         'Afghan Hound',
         'Airedale Terrier',
@@ -213,27 +213,22 @@ def predict_breed(img_path):
     OUTPUT:
         prediction - Dog breed predicted by the model
     """
-    
-    # K.clear_session()
+
+    # use saved model
     # saved_model = load_model("../saved_models/model.final.hdf5")
-
-
+    # having to do it this way as getting errors when using load_model    
+    saved_model = Sequential()
+    saved_model.add(GlobalAveragePooling2D(input_shape=(1,1,2048)))
+    saved_model.add(Dense(133, activation='softmax'))
+    saved_model.load_weights('../saved_models/weights.best.ResNet50.hdf5')
+    
     # extract bottleneck features
     tensor = path_to_tensor(img_path)
     bottleneck_feature = ResNet50(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
-    saved_model = Sequential()
-    saved_model.add(GlobalAveragePooling2D(input_shape=bottleneck_feature.shape[1:]))
-    saved_model.add(Dense(133, activation='softmax'))
-    # print(saved_model.summary())
-    saved_model.load_weights('../saved_models/weights.best.ResNet50.hdf5')
-    # obtain predicted vector
-    # predicted_vector = saved_model.predict(tensor)
+
+    # return dog breed that is predicted by the model
     predicted_vector = saved_model.predict(bottleneck_feature)
-    # return dog breed that is predicted by the model
     prediction = dog_names[np.argmax(predicted_vector)]
-    # tidy the output
-    prediction = prediction.split(".")[-1].replace("_", " ").title()
-    # return dog breed that is predicted by the model
     return prediction
 
 
