@@ -222,12 +222,12 @@ def predict_breed(img_path):
     """
 
     # use saved model
-    # saved_model = load_model("../saved_models/model.final.hdf5")
+    # saved_model = load_model("saved_models/model.final.hdf5")
     # having to do it this way as getting errors when using load_model
     saved_model = Sequential()
     saved_model.add(GlobalAveragePooling2D(input_shape=(1, 1, 2048)))
     saved_model.add(Dense(133, activation="softmax"))
-    saved_model.load_weights("../saved_models/weights.best.ResNet50.hdf5")
+    saved_model.load_weights("saved_models/weights.best.ResNet50.hdf5")
 
     # extract bottleneck features
     tensor = path_to_tensor(img_path)

@@ -1,6 +1,7 @@
 .DS_Store
 .ipynb_checkpoints
 .vscode
-saved_models
 bottleneck_features
 load_test.ipynb
+saved_models/weights.best.from_scratch.hdf5
+saved_models/weights.best.VGG16.hdf5
