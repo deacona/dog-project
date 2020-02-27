@@ -1,1 +1,1 @@
-web: gunicorn app.run:app
+web: gunicorn app.run:app --max-requests 5 --graceful-timeout 30
