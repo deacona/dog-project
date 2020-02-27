@@ -16,6 +16,9 @@ from keras.models import Sequential
 # instantiate web app
 app = Flask(__name__)
 
+# location of images to use in app
+img_folder = "app/static/"
+
 # cleaned list of dog names for prediction output
 dog_names = [
     "Affenpinscher",
@@ -167,7 +170,7 @@ def face_detector(img_path):
     """
     # extract pre-trained face detector
     face_cascade = cv2.CascadeClassifier(
-        "../haarcascades/haarcascade_frontalface_alt.xml"
+        "haarcascades/haarcascade_frontalface_alt.xml"
     )
 
     img = cv2.imread(img_path)
@@ -224,7 +227,7 @@ def predict_breed(img_path):
     saved_model = Sequential()
     saved_model.add(GlobalAveragePooling2D(input_shape=(1, 1, 2048)))
     saved_model.add(Dense(133, activation="softmax"))
-    saved_model.load_weights("../saved_models/weights.best.ResNet50.hdf5")
+    saved_model.load_weights("saved_models/weights.best.ResNet50.hdf5")
 
     # extract bottleneck features
     tensor = path_to_tensor(img_path)
@@ -247,7 +250,7 @@ def what_am_i(img_path):
         title - Info on species and breed (as appropriate)
     """
 
-    if img_path == "static/":
+    if img_path == img_folder:
         return None
 
     species = "Other"
@@ -283,10 +286,10 @@ def index():
     """
     Parse image paths, make predictions and display web page
     """
-    images = os.listdir("app/static")
+    images = os.listdir(img_folder)
     selection = request.args.get("selection", "")
     # print("static/"+selection)
-    prediction = what_am_i("static/" + selection)
+    prediction = what_am_i(img_folder + selection)
     return render_template(
         "master.html", images=images, selection=selection, prediction=prediction
     )
