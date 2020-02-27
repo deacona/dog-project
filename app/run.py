@@ -283,7 +283,7 @@ def index():
     """
     Parse image paths, make predictions and display web page
     """
-    images = os.listdir("static")
+    images = os.listdir("app/static")
     selection = request.args.get("selection", "")
     # print("static/"+selection)
     prediction = what_am_i("static/" + selection)
