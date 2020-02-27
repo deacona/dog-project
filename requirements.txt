@@ -31,7 +31,6 @@ nbformat==4.3.0
 notebook==4.4.1
 numpy==1.12.1
 olefile==0.44
-opencv-python==3.1.0.0
 pandocfilters==1.4.1
 path.py==10.1
 pickleshare==0.7.4
