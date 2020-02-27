@@ -262,7 +262,7 @@ def what_am_i(img_path):
     if species == "Other":
         title = "You are not a Human or a Dog!"
     else:
-        breed = predict_breed(img_path)
+        breed = "TBC" #predict_breed(img_path)
 
         ## not perfect but will do for now
         if breed[0] in "AEIOU":
