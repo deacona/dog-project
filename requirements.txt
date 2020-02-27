@@ -1,13 +1,10 @@
 anaconda-client==1.6.2
-asn1crypto==0.24.0
 bleach==1.5.0
 certifi==2019.11.28
-cffi==1.11.5
 chardet==3.0.4
 Click==7.0
 clyent==1.2.2
 colorama==0.3.7
-cryptography==2.0.3
 cycler==0.10.0
 decorator==4.0.11
 entrypoints==0.2.2
@@ -47,11 +44,8 @@ pickleshare==0.7.4
 Pillow==4.0.0
 prompt-toolkit==1.0.13
 protobuf==3.2.0
-pycparser==2.19
 Pygments==2.2.0
-pyOpenSSL==17.4.0
 pyparsing==2.1.4
-PySocks==1.6.8
 python-dateutil==2.6.0
 pytz==2019.3
 PyYAML==5.3
@@ -72,5 +66,4 @@ urllib3==1.25.8
 wcwidth==0.1.8
 Werkzeug==1.0.0
 widgetsnbextension==2.0.0
-win-inet-pton==1.0.1
 win-unicode-console==0.5
