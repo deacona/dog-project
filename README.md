@@ -85,17 +85,6 @@ The app could be improved in a number of ways, e.g.
     │
     ├── images                                  <- Images used in ML pipeline
     │
-    ├── requirements                   
-    │   ├── dog-linux.yml   
-    │   ├── dog-linux-gpu.yml   
-    │   ├── dog-mac.yml   
-    │   ├── dog-mac-gpu.yml   
-    │   ├── dog-windows.yml   
-    │   ├── dog-windows-gpu.yml   
-    │   ├── requirements.txt
-    │   ├── requirements-app.txt
-    │   └── requirements-gpu.txt
-    │
     ├── saved_models
     │   ├── model.final.hdf5                    <- Final CNN model
     │   ├── weights.best.from_scratch.hdf5      <- Weights for scratch CNN (excluded from repo)
