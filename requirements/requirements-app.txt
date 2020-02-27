@@ -1,4 +1,0 @@
-Click==7.0
-Flask==0.12.4
-itsdangerous==1.1.0
-Werkzeug==1.0.0

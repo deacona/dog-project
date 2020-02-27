@@ -20,7 +20,7 @@ Given an image of a dog, the algorithm will identify an estimate of the canine�
 
 ## Instructions <a name="instructions"></a>
 
-This project requires Python 3 and the libraries found in the [requirements.txt](requirements/requirements.txt) and [requirements-app.txt](requirements/requirements-app.txt) files.
+This project requires Python 3 and the libraries found in the [requirements.txt](requirements.txt).
 
 There are various ways to install and run the machine learning pipeline - Mac or Linux or Windows, local or AWS, CPU or GPU supported. For detailed instructions please see https://github.com/udacity/dog-project. After installation configure the following in your environment/session...
 
@@ -32,10 +32,10 @@ python -m ipykernel install --user --name dog-project --display-name "dog-projec
 
 Once your environment is setup and configured, the whole pipeline can be run from the [dog_app.ipynb](dog_app.ipynb) notebook.
 
-Run the following command in the `app` directory to launch the web app...
+Run the following command to launch the (local) web app...
 
 ```
-python run.py
+python app/run.py
 ```
 
 
@@ -97,17 +97,19 @@ The app could be improved in a number of ways, e.g.
     │   └── requirements-gpu.txt
     │
     ├── saved_models
-    │   ├── model.final.hdf5                    <- Final CNN model (excluded from repo)
+    │   ├── model.final.hdf5                    <- Final CNN model
     │   ├── weights.best.from_scratch.hdf5      <- Weights for scratch CNN (excluded from repo)
-    │   ├── weights.best.ResNet50.hdf5          <- Weights for ResNet-50 CNN (excluded from repo)
+    │   ├── weights.best.ResNet50.hdf5          <- Weights for ResNet-50 CNN
     │   └── weights.best.VGG16.hdf5             <- Weights for VGG-50 CNN (excluded from repo)
     │
     ├── LICENSE.txt                             <- Software licence
     ├── README.md                               <- The top-level README for developers using this project
+    ├── Procfile                                <- Heroku config file
     ├── app_screenshot.png                      <- Screenshot of web app
     ├── dog_app.ipynb                           <- Pipeline for creating, training and testing model
     ├── extract_bottleneck_features.py          <- Helper functions for predictions on pre-trained models
-    └── report.html                             <- Static export of dog_app.ipynb
+    ├── report.html                             <- Static export of dog_app.ipynb
+    └── requirements.txt                        <- Required Python packages
 
 
 
