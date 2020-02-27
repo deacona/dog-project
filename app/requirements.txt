@@ -12,6 +12,7 @@ cycler==0.10.0
 decorator==4.0.11
 entrypoints==0.2.2
 Flask==0.12.4
+gunicorn==20.0.4
 h5py==2.7.0
 html5lib==0.999
 idna==2.8
